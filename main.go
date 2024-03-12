@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"github.com/sandeep-jaiswar/osiris-backend-vault/pkg/logger"
+)
+
+func init(){
+    logger.EnableLogger()
+}
 
 func main() {
-    fmt.Println("Hello, world!")
+    logger.Log.Info("Hello, world!")
 }
