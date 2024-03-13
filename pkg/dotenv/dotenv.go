@@ -21,8 +21,16 @@ type Config struct {
 				Value int    `yaml:"value"`
 			} `yaml:"lifetime"`
 		} `yaml:"session"`
+		Database struct {
+			Username string `yaml:"username"`
+			Password string `yaml:"password"`
+			Hostname string `yaml:"hostname"`
+			Port     string `yaml:"port"`
+			DBName   string `yaml:"dbname"`
+		} `yaml:"database"`
 	} `yaml:"go"`
 }
+
 
 func Enable() {
 	// Get the current working directory
@@ -56,11 +64,12 @@ func Enable() {
 	os.Setenv("GO_SERVER_CONTEXT_PATH", cfg.Go.Server.ContextPath)
 	os.Setenv("GO_SESSION_LIFETIME_UNIT", cfg.Go.Session.Lifetime.Unit)
 	os.Setenv("GO_SESSION_LIFETIME_VALUE", fmt.Sprintf("%d", cfg.Go.Session.Lifetime.Value))
+	os.Setenv("GO_DATABASE_USERNAME",cfg.Go.Database.Username)
+	os.Setenv("GO_DATABASE_PASSWORD",cfg.Go.Database.Password)
+	os.Setenv("GO_DATABASE_HOSTNAME",cfg.Go.Database.Hostname)
+	os.Setenv("GO_DATABASE_PORT",cfg.Go.Database.Port)
+	os.Setenv("GO_DATABASE_DBNAME",cfg.Go.Database.DBName)
 
-	// Print environment variables for verification
+
 	fmt.Println("Environment variables set successfully:")
-	fmt.Println("GO_SERVER_PORT:", os.Getenv("GO_SERVER_PORT"))
-	fmt.Println("GO_SERVER_CONTEXT_PATH:", os.Getenv("GO_SERVER_CONTEXT_PATH"))
-	fmt.Println("GO_SESSION_LIFETIME_UNIT:", os.Getenv("GO_SESSION_LIFETIME_UNIT"))
-	fmt.Println("GO_SESSION_LIFETIME_VALUE:", os.Getenv("GO_SESSION_LIFETIME_VALUE"))
 }
