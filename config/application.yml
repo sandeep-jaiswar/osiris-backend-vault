@@ -6,3 +6,9 @@ go:
     lifetime:
       unit: "hour"
       value: 24
+  database:
+    username: "root"
+    password: "password"
+    hostname: "localhost"
+    port: 3306
+    dbname: "development"

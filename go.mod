@@ -7,9 +7,12 @@ require (
 	go.uber.org/zap v1.27.0
 )
 
+require filippo.io/edwards25519 v1.1.0 // indirect
+
 require (
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/fatih/color v1.14.1 // indirect
+	github.com/go-sql-driver/mysql v1.8.0
 	github.com/goccy/go-yaml v1.11.2 // indirect
 	github.com/gookit/color v1.5.4 // indirect
 	github.com/gookit/goutil v0.6.15 // indirect

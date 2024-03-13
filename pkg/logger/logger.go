@@ -9,7 +9,7 @@ import (
 
 var (
 	Log      *zap.Logger
-	filename = "session_Service.log"
+	filename = "osiris-backend-vault.log"
 )
 
 func NewConfig() zapcore.EncoderConfig {
