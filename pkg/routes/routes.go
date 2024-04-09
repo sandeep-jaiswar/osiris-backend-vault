@@ -36,7 +36,7 @@ func Setup(db *gorm.DB) error {
   	userService := service.NewUserService(userRepo)
 	userHandler := handlers.NewUserHandler(userService)
 
-	router.HandleFunc("/api/v1/user", userHandler.CreateUserHandler).Methods("POST")
+	router.HandleFunc("/api/v1/user", userHandler.UpsertUserHandler).Methods("POST")
 
 	// Add middleware
 	handler := http.Handler(router)
